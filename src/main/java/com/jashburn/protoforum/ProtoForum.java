@@ -1,6 +1,7 @@
 package com.jashburn.protoforum;
 
-import java.util.*;
+import com.jashburn.protoforum.storage.InMemoryStorage;
+import com.jashburn.protoforum.storage.Storage;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -11,12 +12,21 @@ public class ProtoForum extends AbstractVerticle {
 
 	private static final int PORT = 8000;
 
+	private static final String PATH_APP_V1 = "/forum/v1";
+	private static final String PATH_FORUM = "/";
+
 	@Override
 	public void start(Future<Void> future) {
-		Router router = Router.router(vertx);
+		Storage storage = new InMemoryStorage();
+		ForumHandlers forumHandlers = new ForumHandlers(storage);
+		
+		Router apiRouter = Router.router(vertx);
+		apiRouter.get(PATH_FORUM).handler(forumHandlers::getForum);
 
-
-		vertx.createHttpServer().requestHandler(router::accept).listen(PORT, result -> {
+		Router mainRouter = Router.router(vertx);
+		mainRouter.mountSubRouter(PATH_APP_V1, apiRouter);
+		
+		vertx.createHttpServer().requestHandler(mainRouter::accept).listen(PORT, result -> {
 			if (result.succeeded()) {
 				future.complete();
 			} else {
