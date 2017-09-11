@@ -1,0 +1,64 @@
+Full Resource
+
+{
+    "name":"ProtoForum",
+    "description":"Simple prototype of a forum",
+    "threads":[
+        {
+            "id":123,
+            "title":"Test thread",
+            "messages":[
+                {
+                    "id":12,
+                    "message":"lorem ipsum",
+                    "authorId":123
+                },
+                {
+                    "id":23,
+                    "message":"dolor sit amet",
+                    "authorId":234
+                }
+            ]
+        },
+        {
+            "id":456,
+            "title":"Another test thread",
+            "messages":[
+                {
+                    "id":34,
+                    "message":"consectetur, adipiscing elit",
+                    "authorId":345
+                }
+            ]
+        }
+    ]
+}
+
+/forum/v1/threads/123/messages/23
+
+Forum Resource
+
+{
+    "name": String,
+    "description": String,
+    "threads": Thread[]
+}
+
+Thread Resource
+
+{
+    "id": Int,
+    "title": String,
+    "messages": Message[]
+}
+
+Message Resource
+
+{
+    "id": Int,
+    "message": String,
+    "authorId": Int
+}
+
+/forum/v1/threads/:threadId/messages/:messageId
+

@@ -3,6 +3,7 @@ package com.jashburn.protoforum;
 import com.jashburn.protoforum.model.Forum;
 import com.jashburn.protoforum.storage.Storage;
 
+import io.netty.handler.codec.http.HttpHeaderValues;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.json.Json;
@@ -18,7 +19,8 @@ class ForumHandlers {
 
 	void getForum(RoutingContext context) {
 		Forum forum = storage.getForum();
+
 		context.response().setStatusCode(HttpResponseStatus.OK.code())
-			.putHeader(HttpHeaders.CONTENT_TYPE, HttpHeaderValue.APPLICATION_JSON).end(Json.encodePrettily(forum));
+			.putHeader(HttpHeaders.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON).end(Json.encodePrettily(forum));
 	}
 }
