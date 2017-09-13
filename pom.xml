@@ -8,12 +8,12 @@
   	<dependency>
   		<groupId>io.vertx</groupId>
   		<artifactId>vertx-core</artifactId>
-  		<version>3.5.0.Beta1</version>
+  		<version>${version.vertx}</version>
   	</dependency>
   	<dependency>
   		<groupId>io.vertx</groupId>
   		<artifactId>vertx-web</artifactId>
-  		<version>3.5.0.Beta1</version>
+  		<version>${version.vertx}</version>
   	</dependency>
   	<dependency>
   		<groupId>junit</groupId>
@@ -40,6 +40,15 @@
   		<artifactId>mockito-all</artifactId>
   		<version>1.10.19</version>
   		<scope>test</scope>
-  	</dependency>  	
+  	</dependency>
+  	<dependency>
+  		<groupId>io.vertx</groupId>
+  		<artifactId>vertx-unit</artifactId>
+  		<version>${version.vertx}</version>
+  		<scope>test</scope>
+  	</dependency>
   </dependencies>
+  <properties>
+  	<version.vertx>3.5.0.Beta1</version.vertx>
+  </properties>
 </project>

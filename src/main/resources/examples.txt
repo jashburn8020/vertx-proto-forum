@@ -5,29 +5,29 @@ Full Resource
     "description":"Simple prototype of a forum",
     "threads":[
         {
-            "id":123,
+            "id":"some-uuid",
             "title":"Test thread",
             "messages":[
                 {
-                    "id":12,
+                    "id":"some-uuid",
                     "message":"lorem ipsum",
-                    "authorId":123
+                    "authorId":"some-uuid"
                 },
                 {
-                    "id":23,
+                    "id":"some-uuid",
                     "message":"dolor sit amet",
-                    "authorId":234
+                    "authorId":"some-uuid"
                 }
             ]
         },
         {
-            "id":456,
+            "id":"some-uuid",
             "title":"Another test thread",
             "messages":[
                 {
-                    "id":34,
+                    "id":"some-uuid",
                     "message":"consectetur, adipiscing elit",
-                    "authorId":345
+                    "authorId":"some-uuid"
                 }
             ]
         }
